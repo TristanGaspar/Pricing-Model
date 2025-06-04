@@ -1,0 +1,14 @@
+# Caches Python
+__pycache__/
+*.pyc
+
+# Fichiers temporaires ou inutiles à versionner
+fetcher_log.txt
+data_summary.csv
+
+
+# Fichiers système ou d'IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
