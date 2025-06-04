@@ -1,0 +1,2 @@
+2025-06-04 17:47:53,682 - ERROR - $APPL: possibly delisted; no price data found  (period=1y)
+2025-06-04 17:47:53,684 - ERROR - Erreur pour APPL: Aucune donnée disponible pour APPL sur la période 1y
