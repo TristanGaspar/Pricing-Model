@@ -1,13 +1,22 @@
+"""
+plotter.py
+----------
+Visualisation du prix et des Greeks d'une option européenne selon Black-Scholes.
+
+Fonctionnalités :
+- Affichage du prix théorique en fonction du prix spot
+- Tracé dynamique des principaux Greeks (Delta, Gamma, Vega, Theta, Rho)
+- Récupération automatique des données de marché via yFinance
+- Interface interactive en ligne de commande
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 from black_scholes import black_scholes_price, black_scholes_greeks
 from data_fetcher import get_stock_data
 
 def plot_greeks_vs_spot(S0, K, T, r, vol, option_type='call', spread=0.3):
-    """
-    Trace le prix et les greeks d'une option en fonction du prix spot S.
-    La grille S est centrée autour de S0.
-    """
+    """Trace le prix et les Greeks en fonction du prix spot autour de S0."""
     S_min = S0 * (1 - spread)
     S_max = S0 * (1 + spread)
     S = np.linspace(S_min, S_max, 200)
@@ -27,39 +36,39 @@ def plot_greeks_vs_spot(S0, K, T, r, vol, option_type='call', spread=0.3):
 
     plt.subplot(2, 3, 1)
     plt.plot(S, prices)
-    plt.title('Prix de l\'option')
-    plt.xlabel('Prix spot (S)')
-    plt.ylabel('Prix')
+    plt.title("Prix de l'option")
+    plt.xlabel("Prix spot (S)")
+    plt.ylabel("Prix")
 
     plt.subplot(2, 3, 2)
     plt.plot(S, deltas)
-    plt.title('Delta')
-    plt.xlabel('Prix spot (S)')
-    plt.ylabel('Delta')
+    plt.title("Delta")
+    plt.xlabel("Prix spot (S)")
+    plt.ylabel("Delta")
 
     plt.subplot(2, 3, 3)
     plt.plot(S, gammas)
-    plt.title('Gamma')
-    plt.xlabel('Prix spot (S)')
-    plt.ylabel('Gamma')
+    plt.title("Gamma")
+    plt.xlabel("Prix spot (S)")
+    plt.ylabel("Gamma")
 
     plt.subplot(2, 3, 4)
     plt.plot(S, vegas)
-    plt.title('Vega')
-    plt.xlabel('Prix spot (S)')
-    plt.ylabel('Vega')
+    plt.title("Vega")
+    plt.xlabel("Prix spot (S)")
+    plt.ylabel("Vega")
 
     plt.subplot(2, 3, 5)
     plt.plot(S, thetas)
-    plt.title('Theta')
-    plt.xlabel('Prix spot (S)')
-    plt.ylabel('Theta')
+    plt.title("Theta")
+    plt.xlabel("Prix spot (S)")
+    plt.ylabel("Theta")
 
     plt.subplot(2, 3, 6)
     plt.plot(S, rhos)
-    plt.title('Rho')
-    plt.xlabel('Prix spot (S)')
-    plt.ylabel('Rho')
+    plt.title("Rho")
+    plt.xlabel("Prix spot (S)")
+    plt.ylabel("Rho")
 
     plt.tight_layout()
     plt.show()
